@@ -1,0 +1,5 @@
+∫v^n dv
+v^(n + 1) / (n + 1) + C
+n v^(n-1) dv/dx
+ln v + C
+v^(n + 1) / (n + 1) ∫dv

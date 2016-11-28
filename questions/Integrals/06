@@ -1,0 +1,5 @@
+∫a^v dv
+a^v / ln a + C
+v^(n + 1) / (n + 1) + C
+ln a + C
+v^2 + a^2 + C
