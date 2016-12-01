@@ -1,5 +1,5 @@
-∫e^v dv
-e^v + C
-e^v dv/dx
-ve^v + C
-e^v ∫v dv
+<html>∫e<sup>v</sup> dv</html>
+<html>e<sup>v</sup> + C</html>
+<html>e<sup>v</sup> dv/dx</html>
+<html>ve<sup>v</sup> + C</html>
+<html>e<sup>v</sup> ∫v dv</html>

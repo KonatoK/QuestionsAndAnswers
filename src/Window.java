@@ -60,8 +60,9 @@ class Window extends JFrame
                     for(File f:dir.listFiles())
                     {   if(f.isFile())
                         {   java.util.List<String> lines = Files.readAllLines(Paths.get(f.getAbsolutePath()), Charset.forName("UTF8"));
+                            File image = new File(dir.getAbsolutePath() + File.separator + "images" + File.separator + f.getName());
                             if(lines.size() >= 3)
-                            questions.add(new Question(lines.get(0), lines.subList(1, lines.size())));
+                                questions.add(new Question(lines.get(0), lines.subList(1, lines.size()), image.exists() ? image : null));
                         }
                     }
 
@@ -73,9 +74,20 @@ class Window extends JFrame
                     {   Question question = questions.get(random.nextInt(questions.size()));
                         String[] availableOptions = question.getAnswers();
 
+                        JPanel panel;
+                        if(question.getImage() != null)
+                        {   panel = new JPanel(new GridLayout(1, 2, 3, 3));
+                            panel.add(new ImagePanel(question.getImage()));
+                            panel.add(new JLabel(question.getQuestion()));
+                        }
+                        else
+                        {   panel = new JPanel(new GridLayout(1, 1, 3, 3));
+                            panel.add(new JLabel(question.getQuestion(), SwingConstants.CENTER));
+                        }
+
                         int response = JOptionPane.showOptionDialog
                         (   Window.this,
-                            question.getQuestion(),
+                            panel,
                             "Question " + (i + 1),
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.PLAIN_MESSAGE,
@@ -95,15 +107,15 @@ class Window extends JFrame
                             rightAnswers++;
 
                             playSound(soundFiles.get(rightStreak));
-                            JOptionPane.showMessageDialog(Window.this, "Yes! " + question.getExplanation() + "!", "You're Right!", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(Window.this, "<html>Yes! " + question.getExplanation() + "!", "You're Right!</html>", JOptionPane.INFORMATION_MESSAGE);
                         }
                         else
                         {   rightStreak = 0;
                             playSound(soundFiles.get(0));
-                            JOptionPane.showMessageDialog(Window.this, "Sorry, the right answer is: " + question.getRightAnswer(), "Wrong, Sorry!", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(Window.this, "<html>Sorry, the right answer is: " + question.getRightAnswer() + "</html>", "Wrong, Sorry!", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
-                    
+
                     JOptionPane.showMessageDialog(Window.this, "You got " + rightAnswers + "/" + (i) + " right answers", "Results", JOptionPane.INFORMATION_MESSAGE);
                 }
                 catch(Exception ex)

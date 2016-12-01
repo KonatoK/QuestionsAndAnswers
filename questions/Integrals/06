@@ -1,5 +1,5 @@
-∫a^v dv
-a^v / ln a + C
-v^(n + 1) / (n + 1) + C
+<html>∫a<sup>v</sup> dv</html>
+<html>a<sup>v</sup> / ln a + C</html>
+<html>v<sup>(n + 1)</sup> / (n + 1) + C</html>
 ln a + C
-v^2 + a^2 + C
+v² + a² + C

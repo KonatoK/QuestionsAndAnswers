@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 class Question
 {   private final String question;
@@ -6,7 +7,9 @@ class Question
     private final String rightAnswer;
     private String explanation;
 
-    public Question(String q, List<String> a)
+    private File image;
+
+    public Question(String q, List<String> a, File i)
     {   question = q;
         answers = a;
 
@@ -16,6 +19,8 @@ class Question
 
         if(temp.length > 1)
             explanation = temp[1];
+
+        image = i;
     }
 
     public String[] getAnswers()
@@ -37,5 +42,9 @@ class Question
 
     public String getExplanation()
     {   return explanation == null ? rightAnswer : explanation;
+    }
+
+    public File getImage()
+    {   return image;
     }
 }

@@ -1,5 +1,5 @@
 ∫dv/v
 ln v + C
-v^(n + 1) / (n + 1) + C
-n v^(n-1) + C
+<html>v<sup>(n + 1)</sup> / (n + 1) + C</html>
+<html>n v<sup>(n - 1)</sup> + C</html>
 v + C
