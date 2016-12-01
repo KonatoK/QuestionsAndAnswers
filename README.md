@@ -30,3 +30,12 @@ the program won't fail, if you just want to delete the one that plays when you'r
 
 You can add as many sets of questions and questions to the program (as long as your filesystem allows
 you...), you will get asked at most 50 questions per session though, so keep that in mind.
+
+Since `v0.6` it's possible to add images to a question, images need to be placed inside the directory
+with the questions inside a `images/` directory, images **must match the file name of the question**
+including file extension (this is, if you have a `questions/Integrals/exponential.txt` your image
+will be `questions/Integrals/images/exponential.txt`), they will resize to their original size so
+it's not recommended to use large images, use with caution.
+
+Adding images is entirely optional, if you want to remove the text of a question and just leave the
+image then leave the first line of the question file blank.
